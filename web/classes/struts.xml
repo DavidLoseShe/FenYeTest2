@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" /><!-- 自动动态方法的调用，使用这个设置后可以这样调用：action!method -->
+    <constant name="struts.convention.action.mapAllMatches" value="true"/>
+    <package name="struts" namespace="/" extends="json-default">
+            <action name="Activity*" class="action.ActivityAction" method="{1}">
+                  <result name="success" type="json"></result>
+            </action>
+        <action name="Activity" class="action.ActivityAction" method="Join">
+            <result name="success">/test2.jsp</result>
+            <result name="wrong">/welcome.html</result>
+          <!--  <result name="error">/welcome.html</result>-->
+        </action>
+        <action name="Student*" class="action.LoginAction" method="{1}">
+            <result name="success">/main.jsp</result>
+            <result name="error">/welcome.html</result>
+        </action>
+    </package>
+</struts>
