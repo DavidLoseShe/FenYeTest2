@@ -13,12 +13,13 @@
             </action>
         <action name="Activity" class="action.ActivityAction" method="Join">
             <result name="success">/test2.jsp</result>
-            <result name="wrong">/welcome.html</result>
-          <!--  <result name="error">/welcome.html</result>-->
+            <result name="wrong">/welcome.jsp</result>
+          <!--  <result name="errowelcome.jsphtml</result>-->
         </action>
         <action name="Student*" class="action.LoginAction" method="{1}">
             <result name="success">/main.jsp</result>
-            <result name="error">/welcome.html</result>
+            <result name="error">/welcome.jsp</result>
+          <!--  <result name="login" type="json"></result>-->
         </action>
     </package>
 </struts>

@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import entity.ActivityInformation;
 import entity.Remarkinformation;
+import entity.Studentinformation;
 import service.ActivityService;
 
 import java.text.SimpleDateFormat;
@@ -23,7 +24,7 @@ public class ActivityAction extends ActionSupport{
         List<Remarkinformation> remarkinformationList;
         List<ActivityInformation> activityInformations;
         String remarkContent;
-        String remarkPeople;
+        Studentinformation remarkPeople;
 
 
 
@@ -35,11 +36,11 @@ public class ActivityAction extends ActionSupport{
         this.remarkContent = remarkContent;
     }
 
-    public String getRemarkPeople() {
+    public Studentinformation getRemarkPeople() {
         return remarkPeople;
     }
 
-    public void setRemarkPeople(String remarkPeople) {
+    public void setRemarkPeople(Studentinformation remarkPeople) {
         this.remarkPeople = remarkPeople;
     }
 
@@ -113,19 +114,15 @@ public class ActivityAction extends ActionSupport{
     public String Join() {
            ActionContext actionContext = ActionContext.getContext();
            Map session = actionContext.getSession();
-        remarkPeople= (String) session.get("AcUser");
+        remarkPeople= (Studentinformation) session.get("AcUser");
            if (remarkPeople != null) {
-               if (remarkPeople.equalsIgnoreCase("User")) {
                    //1
                    //2
                   ActivityService activityService = new ActivityService();
                    activityInformation=activityService.activityInformation(activityId);
-
                    System.out.print(activityId);
                    return "success";
-               }
 
-               else {System.out.println("11111111111111111111");return "wrong";}
            }
            else {System.out.println("2222222222"); return "wrong";}
 
@@ -136,16 +133,20 @@ public class ActivityAction extends ActionSupport{
               return "success";
        }
        public String remarkSave(){
+           ActionContext actionContext = ActionContext.getContext();
+           Map session = actionContext.getSession();
+           remarkPeople= (Studentinformation) session.get("AcUser");
            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
            Remarkinformation remarkinformation = new Remarkinformation();
            remarkinformation.setRemarkContent(remarkContent);
            remarkinformation.setActivityId(activityId);
-           remarkinformation.setStudentId(remarkPeople);
+           remarkinformation.setStudentId(remarkPeople.getStudentName());
            remarkinformation.setRemarkTime(df.format(new Date()));
            ActivityService activityService = new ActivityService();
            if(activityService.remarkSave(remarkinformation))
            return "success";
            else { return  "wrong";}
+
        }
 }
 

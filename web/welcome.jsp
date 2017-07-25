@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +18,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body >
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
   <div class="container-fluid"> 
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -53,7 +54,7 @@
             <p><a class="btn btn-success btn-lg" href="#" role="button">注&nbsp; 册</a> </p>
           </div>
           <div class="col-lg-2 col-md-6 col-sm-6">
-            <p><a class="btn btn-primary btn-lg" href="StudentLogin.action" role="button">登 &nbsp;录</a> </p>
+            <p><a class="btn btn-primary btn-lg"  role="button"  data-toggle="modal" data-target="#myModal">登 &nbsp;录</a> </p>
           </div>
         </div>
         <p class="text-center">&nbsp;你还在为找不到人聚餐而愁吗？你还在为找不到同学打球而难受吗？你还在为找不到伙伴烧烤篝火无奈吗？大学生户外趴是针对当代大学交际不足，提供的一个交际平台，它丰富课余生活，享受户外活动的魅力，值得大家的参与！！</p>
@@ -61,39 +62,70 @@
     </div>
   </div>
 </div>
-<!--<div class="container">
-  <div class="row">
-    <div class="text-center col-sm-6">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, magnam?</p>
-      <a class="btn btn-danger btn-lg" href="#" role="button">Tutorials</a></div>
-    <div class="text-center col-sm-6">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, magnam?</p>
-      <a class="btn btn-info btn-lg" href="#" role="button">Documentation</a></div>
-  </div>
-</div>-->
+<!-- 模态框（Modal） -->
+<div id="result" >${stduent}</div>
+<div id="user">${username}</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog " style="width:400px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"><div><h2>用户登录</h2></div></h4>
+            </div>
+            <div class="modal-body">
+                <div style="padding: 20px 20px 20px 20px;">
+                    <form class="bs-example bs-example-form" role="form" action="StudentLogin.action" method="post">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <div class="input-group input-group-lg">
+                                    <input type="text" class="form-control " value="${username}" maxlength="20" name="username" placeholder="请输入账户名 " onkeydown="clear1()">
+                                </div><!-- /input-group -->
+                            </div>
+                            <div class="col-lg-2">
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                            <br>
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <div class="input-group input-group-lg">
+                                    <input type="password" class="form-control " value="${Password}" maxlength="20" name="Password" placeholder="请输入密码" onkeydown="clear1()">
+                                </div><!-- /input-group -->
+                            </div>
+                        </div><!-- /.row -->
+                       <div ><p style="color: red" id="message"></p></div>
+                            <br>
+                        <div class="row">
+                            <div class=" col-lg-6">
+                            <input type="submit" class="btn btn-block" value="登录">
+                            </div>
+                          <div class="col-lg-6">
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox">记住密码
+                                  </label>
+                              </div>
+                          </div>
+
+                        </div>
+
+                    </form>
+                </div>
+<!--                    <div id="myButtons2" class="bs-example">
+                        <a class="btn btn-primary btn-sm"  role="button">登录</a>
+                    </div>-->
+            </div>
+
+        </div>
+<!--            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">提交更改</button>
+            </div>-->
+    </div><!-- /.modal-content -->
+</div>
+
 <hr>
-<!--<div class="container">
-  <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-6">
-      <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Lorem ipsum</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis accusamus praesentium eveniet ad unde doloremque ex officia eius ab quibusdam.</p>
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-6">
-      <h2><span class="glyphicon glyphicon-music" aria-hidden="true"></span> Lorem ipsum</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, mollitia natus amet eligendi consequuntur. Veritatis ullam debitis voluptas repellat laboriosam.</p>
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-6">
-      <h2><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span> Lorem ipsum</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, error, itaque non vel architecto ratione obcaecati doloribus delectus illum harum?</p>
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-6">
-      <h2><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Lorem ipsum</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, nam voluptate accusantium nulla distinctio odit aliquam voluptatem ab. Earum, voluptatibus.</p>
-    </div>
-  </div>
-</div>-->
+
 <div class="container">
 <div class="jumbotron" style="opacity:0.9">
 	<div class="row">
@@ -122,7 +154,7 @@
           <h3>海边烧烤</h3>
           <p>有木有闻到香味？恩？有木有流水</p>
           <hr>
-          <p><a href="#" class="btn btn-success" role="button">加入我们</a></p>
+          <p><a data-toggle="modal" data-target="#myModal" class="btn btn-success" role="button">加入我们</a></p>
         </div>
       </div>
     </div>
@@ -132,7 +164,7 @@
           <h3>篮球赛</h3>
           <p>舍友是不是不肯运动？我们来帮你找搭档，狗狗狗</p>
           <hr>
-          <p><a href="#" class="btn btn-success" role="button">加入我们</a></p>
+          <p><a data-toggle="modal" data-target="#myModal" class="btn btn-success" role="button">加入我们</a></p>
         </div>
       </div>
     </div>
@@ -144,7 +176,7 @@
           <h3>足球赛</h3>
           <p>恩？？？恩？？？</p>
           <hr>
-          <p><a href="#" class="btn btn-success" role="button">加入我们</a></p>
+          <p><a data-toggle="modal" data-target="#myModal" class="btn btn-success" role="button">加入我们</a></p>
         </div>
       </div>
     </div>
@@ -154,7 +186,7 @@
           <h3>聚会</h3>
           <p>万一找到了对象了呢？</p>
           <hr>
-          <p><a href="#" class="btn btn-success" role="button">加入我们</a></p>
+          <p><a data-toggle="modal" data-target="#myModal" class="btn btn-success" role="button">加入我们</a></p>
         </div>
       </div>
     </div>
@@ -215,5 +247,6 @@
 <script src="js/jquery-3.2.1.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 <script src="bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+<script src="js/Login.js"></script>
 </body>
 </html>

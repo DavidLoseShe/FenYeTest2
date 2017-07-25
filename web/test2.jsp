@@ -44,7 +44,7 @@
         <li><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>-->
-        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"><span id="username"> ${remarkPeople}</span><span class="caret"></span></a>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"><span id="username"> ${remarkPeople.studentName}</span><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">个人信息</a></li>
             <li><a href="#">修改密码</a></li>
@@ -123,7 +123,7 @@
       <div class="col-lg-2"> </div>
       <div class="col-lg-8">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="此处输入评论" maxlength="50" id="remarkContent" oninput="zishu() ">
+          <input type="text" class="form-control" remarkPeople="此处输入评论" maxlength="50" id="remarkContent" oninput="zishu() ">
           <span class="input-group-btn">
           <button class="btn btn-default" type="button" onclick="remark()">发表评论</button>
           </span> </div>

@@ -44,7 +44,7 @@ function chaxun() {
     });
 }
 function remark(){
-
+    $("#zishu").html("50");
     var content=$("#remarkContent").val();
     if(content.length>10){
     $("#remarkContent").val("");
@@ -53,7 +53,7 @@ function remark(){
     $.ajax({
         url: "ActivityremarkSave.action",
         type: "POST",
-        data: {"activityId": activityId, "remarkContent": content, "remarkPeople": remarkpeople},
+        data: {"activityId": activityId, "remarkContent": content},
         dataType: "json",
         success: function (data) {
             toastr["success"]("你的评论成功了!","恭喜你");
