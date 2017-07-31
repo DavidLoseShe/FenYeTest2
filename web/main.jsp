@@ -44,7 +44,7 @@
         <li><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>-->
-        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"> ${stduent.studentName}<span class="caret"></span></a>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id ="user"> ${stduent.studentName}<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">个人信息</a></li>
             <li><a href="#">修改密码</a></li>
@@ -229,18 +229,17 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="activityState" class="control-label"> 状态</label>
-            <select class="form-control" name="" id="activityState">
+            <label for="activityState" class="control-label" > 状态</label>
+            <select class="form-control" name="" id="activityState" onchange="chaxun()">
               <option value="正在发布">正在发布</option>
               <option value="已经结束">已经结束</option>
             </select>
           </div>
       <div class="form-group">
-            <label for="activityRelation" class="control-label"> 关系</label>
-            <select class="form-control" name="" id="activityRelation">
-              <option value="">所有</option>
-              <option value="">我参加过</option>
-              <option value="">我未参加过</option>
+            <label for="activityRelation" class="control-label" > 关系</label>
+            <select class="form-control" name="" id="activityRelation" onchange="chaxun()">
+              <option value="所有">所有</option>
+              <option value="我参加过">我参加过</option>
             </select>
           </div>
 <!--          <div class="form-group">
@@ -321,6 +320,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quod temporib
       </div>
     </div>
   </div>
+  <div style="visibility: hidden" id="studentid">${stduent.studentId}</div>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="js/jquery-3.2.1.js"></script>

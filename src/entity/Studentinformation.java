@@ -16,6 +16,7 @@ public class Studentinformation {
     private String studentClass;
     private String stduentQq;
     private String studentSay;
+    private Integer studentflower;
 
     @Id
     @Column(name = "StudentId", nullable = false, length = 255)
@@ -104,5 +105,15 @@ public class Studentinformation {
         result = 31 * result + (stduentQq != null ? stduentQq.hashCode() : 0);
         result = 31 * result + (studentSay != null ? studentSay.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "Studentflower", nullable = true)
+    public Integer getStudentflower() {
+        return studentflower;
+    }
+
+    public void setStudentflower(Integer studentflower) {
+        this.studentflower = studentflower;
     }
 }

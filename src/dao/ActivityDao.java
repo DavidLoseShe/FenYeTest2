@@ -14,13 +14,23 @@ import java.util.List;
  * Created by d on 2017/7/12.
  */
 public class ActivityDao {
-    public int getPage( String activityType){
+    public int getPage( String activityType,String activityState,String activityRelation,String peopleid){
         int recordCount=0,t1=0,t2=0;
         Session session= Main.getSession();
-        String hql1="select count(*) from ActivityInformation where activityKind =?1 or '所有'=?1";
-        Query query=session.createQuery(hql1);
-        query.setParameter(1, activityType);
-
+       Query query;
+        String hql1="select count(*) from ActivityInformation where( activityKind =?1 or '所有'=?1)and activityState=?2" ;
+        String hql2="select count(*) from ActivityInformation a,Joinactivity b where( a.activityKind =?1 or '所有'=?1)and a.activityState=?2 and  a.activityId=b.activityiid and b.peopleiid=?3 ";
+        if(activityRelation.equals("所有")){
+            query = session.createQuery(hql1);
+            query.setParameter(1, activityType);
+            query.setParameter(2, activityState);
+        }
+        else {
+            query = session.createQuery(hql2);
+            query.setParameter(1, activityType);
+            query.setParameter(2, activityState);
+            query.setParameter(3, peopleid);
+        }
        Long aLong=(Long)query.uniqueResult();
 
        recordCount=aLong.intValue();
@@ -38,23 +48,41 @@ public class ActivityDao {
      * @param pageNo
      * @return
      */
-    public List<ActivityInformation> listUser(int pageNo,String activityType){
-
-        List<ActivityInformation> list=new ArrayList<ActivityInformation>();
+    public List<ActivityInformation> listUser(int pageNo,String activityType,String activityState,String activityRelation,String peopleid){
+         List activityInformationList=new ArrayList<ActivityInformation>();
+         List<Object[]> list;
         int pageSize=6;
         int page=(pageNo-1)*6;
         Session session= Main.getSession();
-        String hql2="from ActivityInformation where activityKind =?1 or '所有'=?1";
-        Query query=session.createQuery(hql2);
-        query.setParameter(1,activityType);
-        query.setFirstResult(page);
-        query.setMaxResults(pageSize);
-        list=query.list();
-        System.out.println(activityType);
-        for (ActivityInformation activityInformation:list){
-            System.out.print(activityInformation.getActivityId());
-        }
-        return list;
+        Query query;
+        String hql ="from ActivityInformation a  where( a.activityKind =?1 or '所有'=?1)and a.activityState=?2";
+        String hql2=" from ActivityInformation a , Joinactivity b where( a.activityKind =?1 or '所有'=?1)and a.activityState=?2 and  a.activityId=b.activityiid and b.peopleiid=?3 ";
+      if(activityRelation.equals("所有")){
+          query = session.createQuery(hql);
+          query.setParameter(1, activityType);
+          query.setParameter(2, activityState);
+          query.setFirstResult(page);
+          query.setMaxResults(pageSize);
+          activityInformationList=query.list();
+      }
+      else {
+          query = session.createQuery(hql2);
+          query.setParameter(1, activityType);
+          query.setParameter(2, activityState);
+          query.setParameter(3, peopleid);
+          query.setFirstResult(page);
+          query.setMaxResults(pageSize);
+          list=query.list();
+          for (Object[] objects :list){
+              ActivityInformation activityInformation=null;
+              activityInformation=(ActivityInformation)objects[0];
+              activityInformationList.add(activityInformation);
+          }
+
+      }
+
+          return activityInformationList;
+
     }
     public ActivityInformation activityInformation(int id){
         ActivityInformation activityInformation=null;

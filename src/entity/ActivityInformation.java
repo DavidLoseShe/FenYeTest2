@@ -23,6 +23,7 @@ public class ActivityInformation {
     private String activityPeopleId;
     private String activityState;
 
+
     @Id
     @Column(name = "ActivityId", nullable = false)
     public int getActivityId() {

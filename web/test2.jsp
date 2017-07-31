@@ -11,6 +11,12 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.css">
   <link href="css/toastr.css" rel="stylesheet"/>
+  <!--字体样式-->
+  <link rel="stylesheet" href="iconfont/iconfont.css" type="text/css" />
+
+  <!--必要样式-->
+<%--  <link rel="stylesheet" href="css/index.css" type="text/css" />--%>
+  <link rel="stylesheet" href="css/animate.css" type="text/css" />
 <%--  <style type="text/css">
     *{ margin: 0; padding: 0; }
     body,html{ height: 100%;
@@ -23,11 +29,7 @@
 
   </style>--%>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
 
 </head>
 <body>
@@ -44,7 +46,7 @@
         <li><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>-->
-        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"><span id="username"> ${remarkPeople.studentName}</span><span class="caret"></span></a>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"><span id="username">${remarkPeople.studentName}</span><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">个人信息</a></li>
             <li><a href="#">修改密码</a></li>
@@ -71,7 +73,7 @@
       </div>--> 
   </div>
   <hr>
-<%--  <div class="jumbotron"></div>--%>
+ <div class="jumbotron">
   <div class="row">
     <div class="col-xs-12">
       <div class="media">
@@ -88,10 +90,17 @@
             <div class="col-lg-3">活动结束时间：${activityInformation.activityEndTime}</div>
           </div>
           <div class="row">
-            <div class="col-lg-10">
-              <p class="text-right">发布人：${activityInformation.activityPeopleId}</p>
+            <div class="col-lg-6">
+              <p class="text-right">发布人：<span id ="u">${activityInformation.activityPeopleId}</span></p>
+<%--              <a onclick="Song()">送花</a>--%>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-3">
+              <span id="btn">
+                <a href="javascript:void(0)" data-toggle="tooltip" data-placement="right" title="点击送给楼主1朵鲜花" onclick="Song()"><i class="iconfont">&#xe602;</i> 送花</a>
+               </span>
+            </div>
+
+            <div class="col-lg-3">
               <p class="text-right">发布时间：${activityInformation.activityTime}</p>
             </div>
           </div>
@@ -117,6 +126,7 @@
         </div>
       </div>--> 
   </div>
+ </div>
   <hr>
   <div style="min-height: 200px">
     <div class="row">
@@ -164,6 +174,8 @@
     </div>
   </div>
 <span id="iiid" style="visibility: hidden"> ${activityId}</span>
+  <span id="sid" style="visibility: hidden"> ${remarkPeople.studentId}</span>
+
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-3.2.1.js"></script>

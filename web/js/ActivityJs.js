@@ -13,7 +13,7 @@ $(document).ready(function () {
         $.ajax({
             url: "ActivityinformationList.action",
             type: "POST",
-            data: {'pageNo':pNo,'activityType':$("#activityType option:selected").val(),'activityState':$("#activityState option:selected").val()},
+            data: {'pageNo':pNo,'activityType':$("#activityType option:selected").val(),'activityState':$("#activityState option:selected").val(),'activityRelation':$("#activityRelation ").find("option:selected").val(),'activityPeopleId':$("#studentid").text()},
             dataType: "json",
             success: function (data) {
                 $("#pageCount").text(data.page);
@@ -61,7 +61,7 @@ $(document).ready(function () {
         $.ajax({
             url: "ActivityinformationList.action",
             type: "POST",
-            data: {'pageNo':pNo,'activityType':$("#activityType ").find("option:selected").val(),'activityState':$("#activityState ").find("option:selected").val()},
+            data: {'pageNo':pNo,'activityType':$("#activityType ").find("option:selected").val(),'activityState':$("#activityState ").find("option:selected").val(),'activityRelation':$("#activityRelation ").find("option:selected").val(),'activityPeopleId':$("#studentid").text()},
             dataType: "json",
             success: function (data) {
                 $("#pageCount").text(data.page);
@@ -107,7 +107,7 @@ function chaxun(){
     $.ajax({
         url: "ActivityinformationList.action",
         type: "POST",
-        data: {'activityType':$("#activityType ").find("option:selected").val(),'activityState':$("#activityState ").find("option:selected").val()},
+        data: {'activityType':$("#activityType ").find("option:selected").val(),'activityState':$("#activityState ").find("option:selected").val(),'activityRelation':$("#activityRelation ").find("option:selected").val(),'activityPeopleId':$("#studentid").text()},
         dataType: "json",
         success: function (data) {
                if(data.page>data.pageNo)　document.getElementById("nextPage").style.visibility="visible";

@@ -21,5 +21,11 @@
             <result name="error">/welcome.jsp</result>
           <!--  <result name="login" type="json"></result>-->
         </action>
+        <action name="Remark*" class="action.RemarkAction" method="{1}">
+            <result name="success" type="json" ></result>
+        </action>
+        <action name="guanilyuan" class="action.guanliyuan" method="guanliyuan">
+            <result name="success" type="json"></result>
+        </action>
     </package>
 </struts>

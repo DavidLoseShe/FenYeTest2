@@ -19,14 +19,40 @@ public class ActivityAction extends ActionSupport{
         int page;
         int pageNo=1;
         String activityType;
+
+    public String getActivityRelation() {
+        return activityRelation;
+    }
+
+    public void setActivityRelation(String activityRelation) {
+        this.activityRelation = activityRelation;
+    }
+
+    String activityRelation;
+    public String getActivityPeopleId() {
+        return activityPeopleId;
+    }
+
+    public void setActivityPeopleId(String activityPeopleId) {
+        this.activityPeopleId = activityPeopleId;
+    }
+
+    String activityPeopleId;
         ActivityInformation activityInformation;
         int activityId;
         List<Remarkinformation> remarkinformationList;
         List<ActivityInformation> activityInformations;
         String remarkContent;
         Studentinformation remarkPeople;
+        String activityState;
 
+    public String getActivityState() {
+        return activityState;
+    }
 
+    public void setActivityState(String activityState) {
+        this.activityState = activityState;
+    }
 
     public String getRemarkContent() {
         return remarkContent;
@@ -103,12 +129,11 @@ public class ActivityAction extends ActionSupport{
               return page;
        }
        public String informationList(){
+            activityPeopleId=activityPeopleId.trim();
               ActivityService  activityService = new ActivityService();
-               page= activityService.getPage(  activityType);
-              activityInformations=activityService.activityInformationList(pageNo,activityType);
-              for (ActivityInformation activityInformation:activityInformations){
-                     System.out.print(activityInformation.getActivityId());
-              }
+               page= activityService.getPage( activityType,activityState,activityRelation,activityPeopleId);
+              activityInformations=activityService.activityInformationList(pageNo,activityType,activityState,activityRelation,activityPeopleId);
+
               return "success";
        }
     public String Join() {

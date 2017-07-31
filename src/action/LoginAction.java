@@ -41,6 +41,7 @@ public class LoginAction extends ActionSupport{
 
     public String Login(){
 
+
         ActionContext actionContext = ActionContext.getContext();
         Map session = actionContext.getSession();
         Studentinformation s = (Studentinformation)session.getOrDefault("AcUser",null);
@@ -52,4 +53,5 @@ public class LoginAction extends ActionSupport{
         }
     return "error";
     }
+
 }

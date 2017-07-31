@@ -13,18 +13,18 @@ public class ActivityService {
 
 
 
-    public int getPage(String   activityType){
+    public int getPage(String activityType,String activityState,String activityRelation,String  peopleid){
         int page;
         ActivityDao activityDao =new ActivityDao();
-        page=activityDao.getPage(  activityType);
+        page=activityDao.getPage(activityType,activityState,activityRelation,peopleid);
 
         return  page;
     }
-    public List<ActivityInformation> activityInformationList(int pageNo,String activityType){
+    public List<ActivityInformation> activityInformationList(int pageNo,String activityType,String activityState,String activityRelation,String  peopleid){
         List<ActivityInformation> activityInformations;
         ActivityDao activityDao =new ActivityDao();
         System.out.print(activityType);
-        activityInformations=activityDao.listUser(pageNo,activityType);
+        activityInformations=activityDao.listUser(pageNo,activityType,activityState,activityRelation,peopleid);
         return  activityInformations;
     }
     public ActivityInformation activityInformation(int id){

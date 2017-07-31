@@ -89,7 +89,7 @@
                         <div class="row">
                             <div class="col-lg-10">
                                 <div class="input-group input-group-lg">
-                                    <input type="password" class="form-control " value="${Password}" maxlength="20" name="Password" placeholder="请输入密码" onkeydown="clear1()">
+                                    <input type="password" class="form-control " value="" maxlength="20" name="Password" placeholder="请输入密码" onkeydown="clear1()">
                                 </div><!-- /input-group -->
                             </div>
                         </div><!-- /.row -->
