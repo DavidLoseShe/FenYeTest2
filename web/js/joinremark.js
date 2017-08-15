@@ -76,7 +76,7 @@ function chaxun() {
                   $("#remark").html("");
                   $.each(data.remarkinformationList, function (i, value) {
 
-                      tt = "    <div class='well'>"
+                      tt = "    <div class='well' style='opacity:0.7'>"
                           + " <div class='row'> <span> " + value.studentId + "</span>:<span>" + value.remarkContent + "</span> </div>"
                           + "<p class='text-right'>" + value.remarkTime + "</p>"
                           + "</div>" + tt;

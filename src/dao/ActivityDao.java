@@ -7,7 +7,10 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import unti.Main;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -114,6 +117,27 @@ public class ActivityDao {
            }
            System.out .print("shibai");
            return false;
+     }
+     public boolean ZidongModifyActivityState(int activityId){
+         Session session = Main.getSession();
+         ActivityInformation activityInformation = session.get(ActivityInformation.class, activityId);
+         activityInformation.setActivityState("已结束");
+         Transaction trans = session.beginTransaction();
+         session.update(activityInformation);
+         trans.commit();
+         return true;
+     }
+     public Date QueryActivityTime(int activityId){
+         Session session = Main.getSession();
+         ActivityInformation activityInformation = session.get(ActivityInformation.class, activityId);
+         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//小写的mm表示的是分钟
+        Date date=null;
+         try {
+              date = sdf.parse(activityInformation.getActivityEndTime());
+         } catch (ParseException e) {
+             e.printStackTrace();
+         }
+         return date;
      }
 }
 

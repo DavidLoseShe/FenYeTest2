@@ -27,5 +27,8 @@
         <action name="guanilyuan" class="action.guanliyuan" method="guanliyuan">
             <result name="success" type="json"></result>
         </action>
+        <action name="Message*" class="action.MessageAction" method="{1}">
+            <result name="success" type="json"></result>
+        </action>
     </package>
 </struts>

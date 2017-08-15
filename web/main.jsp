@@ -15,13 +15,16 @@
   <style type="text/css">
     *{ margin: 0; padding: 0; }
     body,html{ height: 100%;
-      background-image: url("http://pic32.photophoto.cn/20140729/0008020903740129_b.jpg");
+      background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502379771162&di=2515ee3bcb7bab7c6e12b1cd3916c399&imgtype=0&src=http%3A%2F%2Fimg3.redocn.com%2Ftupian%2F20151106%2Fdansechouxiangduobianxingbeijingtupian_5263726.jpg");
       background-position: center center;
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
     }
+ .eee{
+   border-style:none ;
 
+ }
   </style>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,14 +46,15 @@
 <!--        <li><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>-->
+        -->
+        <li><a href="Javascript: void(0)" onclick="Message()">消息 <span class="badge" id="MessageContent">0</span></a></li>
         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id ="user"> ${stduent.studentName}<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">个人信息</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModal" >个人信息</a></li>
             <li><a href="#">修改密码</a></li>
             <li><a href="#">个人笔记</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">退出系统</a></li>
+            <li><a href="welcome.jsp" onclick="exitSystem()">退出系统</a></li>
           </ul>
         </li>
       </ul>
@@ -195,9 +199,9 @@
       </div>
       <ul class="pager">
         <li ><a  id="firstPage">首页</a> </li>
-        <li ><a id="previousPage" style="visibility: hidden">上一页</a></li>
+        <li ><a id="previousPage" href="Javascript: void(0)" style="visibility: hidden">上一页</a></li>
         第<span id="pageNo">1</span>页 &nbsp;&nbsp;共<span id="pageCount"><!--${page}--></span>页
-        <li ><a id="nextPage"  style="visibility: hidden">下一页</a> </li>
+        <li ><a id="nextPage" href="Javascript: void(0)" style="visibility: hidden">下一页</a> </li>
         <li ><a id="finalPage">尾页</a> </li>
       </ul>
     </div>
@@ -219,7 +223,7 @@
               <option value="其他">其他</option>
             </select>
           </div>
-          <div class="form-group">
+<%--          <div class="form-group">
             <label for="activitySize" class="control-label"> 类型</label>
             <select class="form-control" name="" id="activitySize">
               <option value="">所有</option>
@@ -227,7 +231,7 @@
               <option value="">中型</option>
               <option value="">大型</option>
             </select>
-          </div>
+          </div>--%>
           <div class="form-group">
             <label for="activityState" class="control-label" > 状态</label>
             <select class="form-control" name="" id="activityState" onchange="chaxun()">
@@ -322,6 +326,105 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quod temporib
   </div>
   <div style="visibility: hidden" id="studentid">${stduent.studentId}</div>
 </footer>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog " style="width:700px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"><div><h2>用户信息</h2></div></h4>
+      </div>
+      <div class="modal-body">
+        <div style="padding: 20px 20px 20px 20px;">
+          <form class="bs-example bs-example-form" role="form" action="StudentLogin.action" method="post">
+           <div class="container" style="font-size:large">
+              <div class="row">
+                  <div class="col-lg-1"></div>
+                <div class="col-lg-2 text-right" >用户名： </div>
+                <input  class="eee" type="text"  value="admin"  maxlength="10" readonly>
+
+              </div>
+<br>
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2 text-right" >姓名：</div>
+                <input class="eee" type="text"  value="admin"  maxlength="10" readonly>
+              </div>
+             <br>
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2 text-right"> 班级：</div>
+                <input  class="eee" type="text"  value="admin"  maxlength="10" readonly>
+              </div>
+             <br>
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2 text-right">QQ：</div>
+                <input class="eee" type="text"  value="admin"  maxlength="10" readonly>
+              </div>
+             <br>
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2 text-right"> 鲜花数：</div>
+                <input class="eee" type="text"  value="admin"  maxlength="10" readonly>
+              </div>
+             <br>
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2 text-right">个性签名：</div>
+                <input class="eee" type="text"  value="admin"  maxlength="10" readonly>
+              </div>
+             <br>
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2 text-right">上次登录时间：</div>
+                <input class="eee" type="text"  value="admin"  maxlength="10" readonly>
+              </div>
+             <br>
+             <div class="row">
+               <div class="col-lg-2"></div>
+               <div class="col-lg-2"><a class="btn btn-default btn-lg"  role="button" >修改</a></div>
+               <div class="col-lg-8"><a class="btn btn-default btn-lg"  role="button" >退出</a></div>
+
+             </div>
+           </div>
+          </form>
+        </div>
+        <!--                    <div id="myButtons2" class="bs-example">
+                                <a class="btn btn-primary btn-sm"  role="button">登录</a>
+                            </div>-->
+      </div>
+
+    </div>
+    <!--            <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">提交更改</button>
+                </div>-->
+  </div><!-- /.modal-content -->
+</div>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog " style="width:600px " >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabe2"><div><h4>消息</h4></div></h4>
+      </div>
+      <div class="modal-body" style="height:400px; overflow:scroll;">
+        <div style="padding: 20px 20px 20px 20px;">
+          <div id="messageList"></div>
+        </div>
+        <!--                    <div id="myButtons2" class="bs-example">
+                                <a class="btn btn-primary btn-sm"  role="button">登录</a>
+                            </div>-->
+      </div>
+
+    </div>
+    <!--            <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">提交更改</button>
+                </div>-->
+  </div><!-- /.modal-content -->
+</div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="js/jquery-3.2.1.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed --> 

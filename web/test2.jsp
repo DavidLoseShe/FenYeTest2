@@ -17,17 +17,17 @@
   <!--必要样式-->
 <%--  <link rel="stylesheet" href="css/index.css" type="text/css" />--%>
   <link rel="stylesheet" href="css/animate.css" type="text/css" />
-<%--  <style type="text/css">
+  <style type="text/css">
     *{ margin: 0; padding: 0; }
     body,html{ height: 100%;
-      background-image: url("http://pic32.photophoto.cn/20140729/0008020903740129_b.jpg");
+      background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502379771162&di=2515ee3bcb7bab7c6e12b1cd3916c399&imgtype=0&src=http%3A%2F%2Fimg3.redocn.com%2Ftupian%2F20151106%2Fdansechouxiangduobianxingbeijingtupian_5263726.jpg");
       background-position: center center;
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
     }
 
-  </style>--%>
+  </style>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 
 

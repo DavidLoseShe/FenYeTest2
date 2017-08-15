@@ -19,145 +19,178 @@
     <schema id="13" parent="1" name="test"/>
     <schema id="14" parent="1" name="workermanage"/>
     <schema id="15" parent="1" name="zidong"/>
-    <table id="16" parent="2" name="activityinformation"/>
-    <table id="17" parent="2" name="joinactivity"/>
-    <table id="18" parent="2" name="remarkinformation"/>
-    <table id="19" parent="2" name="studentinformation"/>
-    <column id="20" parent="16" name="ActivityId">
+    <schema id="16" parent="1" name="outdoorparty"/>
+    <table id="17" parent="2" name="activityinformation"/>
+    <table id="18" parent="2" name="joinactivity"/>
+    <table id="19" parent="2" name="messagetable"/>
+    <table id="20" parent="2" name="remarkinformation"/>
+    <table id="21" parent="2" name="studentinformation"/>
+    <column id="22" parent="17" name="ActivityId">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="21" parent="16" name="ActivityName">
+    <column id="23" parent="17" name="ActivityName">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="22" parent="16" name="ActivityAddress">
+    <column id="24" parent="17" name="ActivityAddress">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="23" parent="16" name="ActivityPeopleRemainNum">
+    <column id="25" parent="17" name="ActivityPeopleRemainNum">
       <Position>4</Position>
       <DataType>varchar(3)|0</DataType>
     </column>
-    <column id="24" parent="16" name="ActivityPeopleNum">
+    <column id="26" parent="17" name="ActivityPeopleNum">
       <Position>5</Position>
       <DataType>varchar(3)|0</DataType>
     </column>
-    <column id="25" parent="16" name="ActivityContent">
+    <column id="27" parent="17" name="ActivityContent">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="26" parent="16" name="ActivityKind">
+    <column id="28" parent="17" name="ActivityKind">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="27" parent="16" name="ActivityStartTime">
+    <column id="29" parent="17" name="ActivityStartTime">
       <Position>8</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="28" parent="16" name="ActivityEndTime">
+    <column id="30" parent="17" name="ActivityEndTime">
       <Position>9</Position>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>datetime|0</DataType>
     </column>
-    <column id="29" parent="16" name="ActivityTime">
+    <column id="31" parent="17" name="ActivityTime">
       <Position>10</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="30" parent="16" name="ActivityPeopleId">
+    <column id="32" parent="17" name="ActivityPeopleId">
       <Position>11</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="31" parent="16" name="ActivityState">
+    <column id="33" parent="17" name="ActivityState">
       <Position>12</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="32" parent="16" name="PRIMARY">
+    <key id="34" parent="17" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ActivityId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="33" parent="17" name="sid">
+    <column id="35" parent="18" name="sid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="17" name="activityiid">
+    <column id="36" parent="18" name="activityiid">
       <Position>2</Position>
       <DataType>int(10)|0</DataType>
     </column>
-    <column id="35" parent="17" name="peopleiid">
+    <column id="37" parent="18" name="peopleiid">
       <Position>3</Position>
       <DataType>varchar(10)|0</DataType>
     </column>
-    <column id="36" parent="17" name="states">
+    <column id="38" parent="18" name="states">
       <Position>4</Position>
       <DataType>varchar(10)|0</DataType>
     </column>
-    <key id="37" parent="17" name="PRIMARY">
+    <key id="39" parent="18" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>sid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="38" parent="18" name="remarkId">
+    <column id="40" parent="19" name="messageId">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="19" name="messageSendId">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="42" parent="19" name="messageReceiveId">
+      <Position>3</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="43" parent="19" name="messageContent">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="44" parent="19" name="messageTime">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="45" parent="19" name="messageState">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="46" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>messageId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="47" parent="20" name="remarkId">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="39" parent="18" name="activityId">
+    <column id="48" parent="20" name="activityId">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="40" parent="18" name="studentId">
+    <column id="49" parent="20" name="studentId">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="41" parent="18" name="remarkContent">
+    <column id="50" parent="20" name="remarkContent">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="42" parent="18" name="remarkTime">
+    <column id="51" parent="20" name="remarkTime">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="43" parent="18" name="PRIMARY">
+    <key id="52" parent="20" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>remarkId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="44" parent="19" name="StudentId">
+    <column id="53" parent="21" name="StudentId">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="45" parent="19" name="StudentPassword">
+    <column id="54" parent="21" name="StudentPassword">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="46" parent="19" name="StudentName">
+    <column id="55" parent="21" name="StudentName">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="47" parent="19" name="StudentClass">
+    <column id="56" parent="21" name="StudentClass">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="48" parent="19" name="StduentQQ">
+    <column id="57" parent="21" name="StduentQQ">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="49" parent="19" name="Studentflower">
+    <column id="58" parent="21" name="Studentflower">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="50" parent="19" name="StudentSay">
+    <column id="59" parent="21" name="StudentSay">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="51" parent="19" name="PRIMARY">
+    <key id="60" parent="21" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>StudentId</ColNames>
       <Primary>1</Primary>

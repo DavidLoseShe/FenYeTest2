@@ -23,5 +23,6 @@
         <mapping class="entity.Remarkinformation"/>
         <mapping class="entity.Studentinformation"/>
         <mapping class="entity.Joinactivity"/>
+        <mapping class="entity.MessageInformation"/>
     </session-factory>
 </hibernate-configuration>
