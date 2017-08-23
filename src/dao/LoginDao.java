@@ -2,9 +2,13 @@ package dao;
 
 import entity.Studentinformation;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import unti.Main;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -23,5 +27,14 @@ public class LoginDao {
             student =studentinformation;
         }
      return student;
+    }
+    public  boolean SaveLoginTime(String studentId){
+        Session session = Main.getSession();
+        Studentinformation studentinformation =session.get(Studentinformation.class,studentId);
+        studentinformation.setStudentLoginTime(Timestamp.valueOf(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())));
+        Transaction trans = session.beginTransaction();
+        session.update(studentinformation);
+        trans.commit();
+        return  true;
     }
 }

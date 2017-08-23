@@ -190,7 +190,11 @@
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="60" parent="21" name="PRIMARY">
+    <column id="60" parent="21" name="StudentLoginTime">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="61" parent="21" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>StudentId</ColNames>
       <Primary>1</Primary>

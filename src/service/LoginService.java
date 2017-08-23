@@ -12,4 +12,8 @@ public class LoginService {
         return  loginDao.Student(username);
 
     }
+    public boolean SaveLoginTimeService(String studentId){
+        LoginDao loginDao = new LoginDao();
+        return  loginDao.SaveLoginTime(studentId);
+    }
 }

@@ -51,7 +51,10 @@ public class LoginAction extends ActionSupport{
         /*if(s==null) */  session.put("AcUser",stduent);
 
         if(stduent!=null) {
-            if (stduent.getStudentPassword().equals(Password)) return "success";
+            if (stduent.getStudentPassword().equals(Password))
+            {
+                loginService.SaveLoginTimeService(username);
+                return "success";}
         }
     return "error";
     }

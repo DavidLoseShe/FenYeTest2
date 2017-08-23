@@ -50,9 +50,9 @@
         <li><a href="Javascript: void(0)" onclick="Message()">消息 <span class="badge" id="MessageContent">0</span></a></li>
         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id ="user"> ${stduent.studentName}<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" data-toggle="modal" data-target="#myModal" >个人信息</a></li>
+            <li><a href="Javascript: void(0)" data-toggle="modal" data-target="#myModal" >个人信息</a></li>
             <li><a href="#">修改密码</a></li>
-            <li><a href="#">个人笔记</a></li>
+            <li><a href="PersonActivity.jsp">个人发布活动</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="welcome.jsp" onclick="exitSystem()">退出系统</a></li>
           </ul>

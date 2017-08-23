@@ -10,6 +10,7 @@ $(document).ready(function () {
         "debug": false,
         "positionClass": "toast-top-center",
         "onclick": null,
+        "preventDuplicates": true,//是否阻止弹出多个消息框
         "showDuration": "300",
         "hideDuration": "1000",
         "timeOut": "2000",

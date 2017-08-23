@@ -102,7 +102,8 @@
                           <div class="col-lg-6">
                               <div class="checkbox">
                                   <label>
-                                      <input type="checkbox">记住密码
+                                      <a>忘记密码</a>
+                                      <%--<input type="checkbox">记住密码--%>
                                   </label>
                               </div>
                           </div>

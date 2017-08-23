@@ -4,6 +4,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 
 /**
  * Created by d on 2017/7/20.
@@ -17,6 +18,7 @@ public class Studentinformation {
     private String stduentQq;
     private String studentSay;
     private Integer studentflower;
+    private Timestamp studentLoginTime;
 
     @Id
     @Column(name = "StudentId", nullable = false, length = 255)
@@ -115,5 +117,15 @@ public class Studentinformation {
 
     public void setStudentflower(Integer studentflower) {
         this.studentflower = studentflower;
+    }
+
+    @Basic
+    @Column(name = "StudentLoginTime", nullable = true)
+    public Timestamp getStudentLoginTime() {
+        return studentLoginTime;
+    }
+
+    public void setStudentLoginTime(Timestamp studentLoginTime) {
+        this.studentLoginTime = studentLoginTime;
     }
 }

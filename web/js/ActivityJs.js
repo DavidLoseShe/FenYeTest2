@@ -5,7 +5,7 @@ $(document).ready(function () {
     MessageContent();
     setInterval(function() {
         $("#MessageContent").load(MessageContent());
-    }, 5000);
+    }, 50000);
 
     $("#previousPage").click(function () {
 
@@ -211,4 +211,15 @@ function read(id) {
 }
 function exitSystem(){
 
+}
+function PerpsonActivity() {
+    $.ajax({
+        url:"", 
+        type:"",
+        data:"",
+        dateType:"json",
+        success:function (data) {
+            
+        }
+    });
 }

@@ -24,10 +24,13 @@
         <action name="Remark*" class="action.RemarkAction" method="{1}">
             <result name="success" type="json" ></result>
         </action>
-        <action name="guanilyuan" class="action.guanliyuan" method="guanliyuan">
+        <action name="AdminActivity*" class="action.AdminActivityAction" method="{1}">
             <result name="success" type="json"></result>
         </action>
         <action name="Message*" class="action.MessageAction" method="{1}">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="AdminStudent*" class="action.AdminStudentAction" method="{1}">
             <result name="success" type="json"></result>
         </action>
     </package>

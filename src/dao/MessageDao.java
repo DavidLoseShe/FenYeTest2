@@ -34,6 +34,7 @@ public class MessageDao {
         Session session = Main.getSession();
         MessageInformation messageInformation = session.get(MessageInformation.class, messageId);
         messageInformation.setMessageState("已读");
+
         Transaction trans = session.beginTransaction();
         session.update(messageInformation);
         trans.commit();
